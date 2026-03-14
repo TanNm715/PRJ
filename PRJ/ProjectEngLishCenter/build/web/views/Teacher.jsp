@@ -36,7 +36,6 @@
                         <td>${ts.phone}</td>
                         <td>${ts.email}</td>
                         <td>${ts.specialization}</td>
-                        <td><a href="#">View</a></td>
 
 
                     </tr>
