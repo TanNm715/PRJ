@@ -66,8 +66,8 @@ public class TeacherController extends HttpServlet {
         if (loginAccount == null) {
             response.sendRedirect("Login");
         } else {
-            TeacherDAO stuDAO = new TeacherDAO();
-            List<Teacher> list = stuDAO.getTeachers();
+            TeacherDAO tDAO = new TeacherDAO();
+            List<Teacher> list = tDAO.getTeachers();
             // tre lai du lieu cho View
             RequestDispatcher rd = request.getRequestDispatcher("views/Teacher.jsp");
             request.setAttribute("teacher", list);
