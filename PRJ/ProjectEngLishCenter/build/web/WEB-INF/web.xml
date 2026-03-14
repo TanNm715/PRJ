@@ -44,4 +44,8 @@
         <servlet-name>ChooseRoleController</servlet-name>
         <url-pattern>/ChooseRole</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TeacherController</servlet-name>
+        <url-pattern>/Teachers</url-pattern>
+    </servlet-mapping>
 </web-app>
