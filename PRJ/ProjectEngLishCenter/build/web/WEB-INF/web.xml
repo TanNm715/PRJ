@@ -17,12 +17,8 @@
         <servlet-class>controllers.RegisterController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RegisterTeacherController</servlet-name>
-        <servlet-class>controllers.RegisterTeacherController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ChooseRoleController</servlet-name>
-        <servlet-class>controllers.ChooseRoleController</servlet-class>
+        <servlet-name>TeacherController</servlet-name>
+        <servlet-class>controllers.TeacherController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -37,12 +33,8 @@
         <url-pattern>/Accounts</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>RegisterTeacherController</servlet-name>
-        <url-pattern>/RegisterTeacher</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ChooseRoleController</servlet-name>
-        <url-pattern>/ChooseRole</url-pattern>
+        <servlet-name>RegisterController</servlet-name>
+        <url-pattern>/Register</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>TeacherController</servlet-name>
