@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>controllers.LoginController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HomeController</servlet-name>
+        <servlet-class>controllers.HomeController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AccountsController</servlet-name>
+        <servlet-class>controllers.AccountsController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterController</servlet-name>
+        <servlet-class>controllers.RegisterController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterTeacherController</servlet-name>
+        <servlet-class>controllers.RegisterTeacherController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChooseRoleController</servlet-name>
+        <servlet-class>controllers.ChooseRoleController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeController</servlet-name>
+        <url-pattern>/Home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccountsController</servlet-name>
+        <url-pattern>/Accounts</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterTeacherController</servlet-name>
+        <url-pattern>/RegisterTeacher</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChooseRoleController</servlet-name>
+        <url-pattern>/ChooseRole</url-pattern>
+    </servlet-mapping>
+</web-app>
