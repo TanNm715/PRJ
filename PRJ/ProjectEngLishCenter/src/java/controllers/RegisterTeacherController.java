@@ -4,6 +4,8 @@
  */
 package controllers;
 
+import dal.AccountDAO;
+import dal.TeacherDAO;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -89,12 +91,41 @@ public class RegisterTeacherController extends HttpServlet {
             rd.forward(request, response);
             return;
         }
+        if (!phone.matches("\\d{10}")) {
+            request.setAttribute("error", "Phone must be 10 digits");
+            rd = request.getRequestDispatcher("views/RegisterTeacher.jsp");
+            rd.forward(request, response);
+            return;
+        }
         if (!email.matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$")) {
             request.setAttribute("error", "Invalid email format");
             rd = request.getRequestDispatcher("views/RegisterTeacher.jsp");
             rd.forward(request, response);
             return;
         }
+        if (specIds == null || specIds.length == 0) {
+            request.setAttribute("error", "Please choose at least one specialization");
+            rd = request.getRequestDispatcher("views/RegisterTeacher.jsp");
+            rd.forward(request, response);
+            return;
+        }
+        TeacherDAO teaDao = new TeacherDAO();
+        AccountDAO accDao = new AccountDAO();
+
+        int teacherId = teaDao.insertTeacher(name, phone, email);
+        if(teacherId != -1){
+            accDao.insertAccount(username, password, teacherId);
+
+            teaDao.insertSpecialize(teacherId, specIds);
+            rd = request.getRequestDispatcher("index.jsp");
+            rd.forward(request, response);
+        }else{
+            rd = request.getRequestDispatcher("views/RegisterTeacher.jsp");
+            request.setAttribute("error", "Phone or Email exists");
+            rd.forward(request, response);
+        }
+        
+        
     }
 
     /**
