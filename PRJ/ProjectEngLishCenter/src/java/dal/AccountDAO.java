@@ -100,4 +100,22 @@ public class AccountDAO extends DBContext {
         }
     }
 
+    public void insertAccount(String username, String password, int teacherId) {
+        String sql = """
+                     INSERT INTO Account(username,password,role_id,teacher_id) 
+                        VALUES (?,?,2,?)
+                     """;
+
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, username);
+            ps.setString(2, password);
+            ps.setInt(3, teacherId);
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }
