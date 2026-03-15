@@ -15,10 +15,10 @@ INSERT INTO Role(role_name) VALUES
 
 CREATE TABLE Parent (
     parent_id INT IDENTITY(1,1) PRIMARY KEY,
-    name VARCHAR(100),
-    phone VARCHAR(20),
-    email VARCHAR(100),
-    address VARCHAR(255)
+    name VARCHAR(100) NOT NULL,
+    phone VARCHAR(20) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    address VARCHAR(255) NOT NULL
 );
 
 INSERT INTO Parent(name,phone,email,address) VALUES
@@ -31,30 +31,30 @@ INSERT INTO Parent(name,phone,email,address) VALUES
 
 CREATE TABLE Student (
     student_id INT IDENTITY(1,1) PRIMARY KEY,
-    parent_id INT,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
-    date_of_birth DATE,
-    gender VARCHAR(10),
-    phone VARCHAR(20) UNIQUE,
-    email VARCHAR(100) UNIQUE,
-    address VARCHAR(255),
+    parent_id INT NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    date_of_birth DATE NOT NULL,
+    gender VARCHAR(10) NOT NULL,
+    phone VARCHAR(20) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    address VARCHAR(255) NOT NULL,
     FOREIGN KEY (parent_id) REFERENCES Parent(parent_id)
 );
 
 INSERT INTO Student(parent_id,first_name,last_name,date_of_birth,gender,phone,email,address) VALUES
 (1,'Minh','Nguyen','2010-05-10','Male','0911111111','minh@gmail.com','Ha Noi'),
 (2,'Lan','Tran','2011-03-15','Female','0922222222','lan@gmail.com','Ha Noi'),
-(3,'Huy','Le','2010-08-20','Male','0933333333','huy@gmail.com','Ha Noi'),
-(4,'Mai','Pham','2011-11-12','Female','0944444444','mai@gmail.com','Ha Noi'),
-(5,'Nam','Hoang','2009-09-09','Male','0955555555','nam@gmail.com','Ha Noi'),
-(6,'Linh','Do','2012-02-18','Female','0966666666','linh@gmail.com','Ha Noi');
+(3,'Huy','Le','2010-08-20','Male','0933333334','huy@gmail.com','Ha Noi'),
+(4,'Mai','Pham','2011-11-12','Female','0944444445','mai@gmail.com','Ha Noi'),
+(5,'Nam','Hoang','2009-09-09','Male','0955555556','nam@gmail.com','Ha Noi'),
+(6,'Linh','Do','2012-02-18','Female','0966666667','linh@gmail.com','Ha Noi');
 
 CREATE TABLE Teacher (
     teacher_id INT IDENTITY(1,1) PRIMARY KEY,
-    name VARCHAR(100),
-    phone VARCHAR(20),
-    email VARCHAR(100)
+    name VARCHAR(100) NOT NULL,
+    phone VARCHAR(20) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE
 );
 
 INSERT INTO Teacher(name,phone,email) VALUES
@@ -78,8 +78,8 @@ INSERT INTO Specialization(specialization_name) VALUES
 ('Vocabulary');
 
 CREATE TABLE Specialize (
-    teacher_id INT,
-    specialization_id INT,
+    teacher_id INT NOT NULL,
+    specialization_id INT NOT NULL,
     PRIMARY KEY (teacher_id, specialization_id),
     FOREIGN KEY (teacher_id) REFERENCES Teacher(teacher_id),
     FOREIGN KEY (specialization_id) REFERENCES Specialization(specialization_id)
@@ -92,15 +92,16 @@ INSERT INTO Specialize VALUES
 (2,3),
 (2,4),
 (3,1),
-(3,6);
+(3,6),
+(4,5);
 
 CREATE TABLE Account (
     account_id INT IDENTITY(1,1) PRIMARY KEY,
-    username VARCHAR(50) UNIQUE,
-    password VARCHAR(255),
-    role_id INT,
-    student_id INT,
-    teacher_id INT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role_id INT NOT NULL,
+    student_id INT NULL,
+    teacher_id INT NULL,
     FOREIGN KEY (student_id) REFERENCES Student(student_id),
     FOREIGN KEY (teacher_id) REFERENCES Teacher(teacher_id),
     FOREIGN KEY (role_id) REFERENCES Role(role_id)
@@ -109,10 +110,12 @@ CREATE TABLE Account (
 INSERT INTO Account(username,password,role_id,student_id,teacher_id) VALUES
 ('admin1','123456',1,NULL,NULL),
 ('admin2','123456',1,NULL,NULL),
+
 ('teacher1','123456',2,NULL,1),
 ('teacher2','123456',2,NULL,2),
 ('teacher3','123456',2,NULL,3),
 ('teacher4','123456',2,NULL,4),
+
 ('student1','123456',3,1,NULL),
 ('student2','123456',3,2,NULL),
 ('student3','123456',3,3,NULL),
@@ -122,10 +125,10 @@ INSERT INTO Account(username,password,role_id,student_id,teacher_id) VALUES
 
 CREATE TABLE Course (
     course_id INT IDENTITY(1,1) PRIMARY KEY,
-    course_name VARCHAR(100),
-    level VARCHAR(50),
-    duration VARCHAR(50),
-    fee DECIMAL(10,2)
+    course_name VARCHAR(100) NOT NULL,
+    level VARCHAR(50) NOT NULL,
+    duration VARCHAR(50) NOT NULL,
+    fee DECIMAL(10,2) NOT NULL
 );
 
 INSERT INTO Course(course_name,level,duration,fee) VALUES
@@ -137,12 +140,12 @@ INSERT INTO Course(course_name,level,duration,fee) VALUES
 
 CREATE TABLE Class (
     class_id INT IDENTITY(1,1) PRIMARY KEY,
-    course_id INT,
-    teacher_id INT,
-    start_date DATE,
-    end_date DATE,
-    schedule VARCHAR(100),
-    room VARCHAR(50),
+    course_id INT NOT NULL,
+    teacher_id INT NOT NULL,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    schedule VARCHAR(100) NOT NULL,
+    room VARCHAR(50) NOT NULL,
     FOREIGN KEY (course_id) REFERENCES Course(course_id),
     FOREIGN KEY (teacher_id) REFERENCES Teacher(teacher_id)
 );
@@ -156,10 +159,10 @@ INSERT INTO Class(course_id,teacher_id,start_date,end_date,schedule,room) VALUES
 
 CREATE TABLE Enrollment (
     enrollment_id INT IDENTITY(1,1) PRIMARY KEY,
-    student_id INT,
-    class_id INT,
-    enroll_date DATE,
-    status VARCHAR(50),
+    student_id INT NOT NULL,
+    class_id INT NOT NULL,
+    enroll_date DATE NOT NULL,
+    status VARCHAR(50) NOT NULL,
     FOREIGN KEY (student_id) REFERENCES Student(student_id),
     FOREIGN KEY (class_id) REFERENCES Class(class_id)
 );
