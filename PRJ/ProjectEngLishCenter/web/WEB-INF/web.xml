@@ -52,4 +52,20 @@
         <servlet-name>CoursesController</servlet-name>
         <url-pattern>/Courses</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>TeacherController</servlet-name>
+        <servlet-class>controllers.TeacherController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TeacherController</servlet-name>
+        <url-pattern>/Teachers</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>StudentController</servlet-name>
+        <servlet-class>controllers.StudentController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentController</servlet-name>
+        <url-pattern>/Students</url-pattern>
+    </servlet-mapping>
 </web-app>
