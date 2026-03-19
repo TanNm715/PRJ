@@ -16,15 +16,15 @@
         <a href='Classes'>Classes</a>
     </c:if>
     <c:if test="${login.getRoleId() == 2}">
-        <a href='Accounts'>Accounts</a>
-        <a href='Students'>Students</a>
-        <a href='Students'>Teachers</a>
-
+        <a href='Profile'>My Profile</a>
+        <a href='Classes'>My Classes</a>
+        <a href='Students'>My Students</a>
+        <a href='Schedule'>Schedule</a>
     </c:if>    
     <c:if test="${login.getRoleId() == 3}">
-        <a href='Accounts'>Accounts</a>
-        <a href='Students'>Students</a>
-        <a href='Students'>Teachers</a>
+        <a href='Profile'>My Profile</a>
+        <a href='MyCourses'>My Courses</a>
+        <a href='Schedule'>Schedule</a>
     </c:if>    
     <a href='Logout' class="logout">Logout</a>
 </div>
