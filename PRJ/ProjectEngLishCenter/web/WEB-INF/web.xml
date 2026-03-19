@@ -13,16 +13,24 @@
         <servlet-class>controllers.AccountsController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RegisterController</servlet-name>
-        <servlet-class>controllers.RegisterController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>RegisterTeacherController</servlet-name>
         <servlet-class>controllers.RegisterTeacherController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ChooseRoleController</servlet-name>
         <servlet-class>controllers.ChooseRoleController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StudentController</servlet-name>
+        <servlet-class>controllers.StudentController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TeacherController</servlet-name>
+        <servlet-class>controllers.TeacherController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterStudentController</servlet-name>
+        <servlet-class>controllers.RegisterStudentController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -52,20 +60,16 @@
         <servlet-name>CoursesController</servlet-name>
         <url-pattern>/Courses</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>TeacherController</servlet-name>
-        <servlet-class>controllers.TeacherController</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>TeacherController</servlet-name>
         <url-pattern>/Teachers</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>StudentController</servlet-name>
-        <servlet-class>controllers.StudentController</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>StudentController</servlet-name>
         <url-pattern>/Students</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterStudentController</servlet-name>
+        <url-pattern>/RegisterStudent</url-pattern>
     </servlet-mapping>
 </web-app>
