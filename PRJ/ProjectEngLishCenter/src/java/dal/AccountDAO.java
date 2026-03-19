@@ -100,7 +100,7 @@ public class AccountDAO extends DBContext {
         }
     }
 
-    public void insertAccount(String username, String password, int teacherId) {
+    public void insertTeacherAccount(String username, String password, int teacherId) {
         String sql = """
                      INSERT INTO Account(username,password,role_id,teacher_id) 
                         VALUES (?,?,2,?)
@@ -111,6 +111,24 @@ public class AccountDAO extends DBContext {
             ps.setString(1, username);
             ps.setString(2, password);
             ps.setInt(3, teacherId);
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void insertStudentAccount(String username, String password, int studentId) {
+        String sql = """
+                     INSERT INTO Account(username,password,role_id,student_id) 
+                        VALUES (?,?,1,?)
+                     """;
+
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, username);
+            ps.setString(2, password);
+            ps.setInt(3, studentId);
             ps.executeUpdate();
 
         } catch (Exception e) {
