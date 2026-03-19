@@ -91,7 +91,7 @@ public class RegisterTeacherController extends HttpServlet {
             rd.forward(request, response);
             return;
         }
-        if (!phone.matches("\\d{10}")) {
+        if (!phone.matches("^\\d{10}$")) {
             request.setAttribute("error", "Phone must be 10 digits");
             rd = request.getRequestDispatcher("views/RegisterTeacher.jsp");
             rd.forward(request, response);
@@ -114,7 +114,7 @@ public class RegisterTeacherController extends HttpServlet {
 
         int teacherId = teaDao.insertTeacher(name, phone, email);
         if(teacherId != -1){
-            accDao.insertAccount(username, password, teacherId);
+            accDao.insertTeacherAccount(username, password, teacherId);
 
             teaDao.insertSpecialize(teacherId, specIds);
             rd = request.getRequestDispatcher("index.jsp");
