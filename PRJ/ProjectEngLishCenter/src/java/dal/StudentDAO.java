@@ -62,4 +62,88 @@ public class StudentDAO extends DBContext {
             return null;
         }
     }
+
+    public int insertParent(String name, String phone, String email, String address) {
+        int parentId = -1;
+
+        try {
+            String sql = """
+                     INSERT INTO Parent(name, phone, email, address)
+                     VALUES (?, ?, ?, ?)
+                     """;
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, name);
+            ps.setString(2, phone);
+            ps.setString(3, email);
+            ps.setString(4, address);
+
+            ps.executeUpdate();
+
+            String sql2 = """
+                      SELECT TOP 1 parent_id
+                      FROM Parent
+                      ORDER BY parent_id DESC
+                      """;
+
+            PreparedStatement ps2 = connection.prepareStatement(sql2);
+            ResultSet rs = ps2.executeQuery();
+
+            if (rs.next()) {
+                parentId = rs.getInt("parent_id");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            parentId = -1;
+        }
+
+        return parentId;
+    }
+
+    public int insertStudent(
+            String username, String password,
+            String firstName, String lastName,
+            String bdate, String gender,
+            String phone, String email, String address,
+            int parentId) {
+
+        int studentId = -1;
+
+        try {
+            String sql = """
+                         INSERT INTO Student(parent_id, first_name, last_name, date_of_birth, gender, phone, email, address)
+                         VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                         """;
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            ps.setInt(1, parentId);
+            ps.setString(2, firstName);
+            ps.setString(3, lastName);
+            ps.setString(4, bdate);
+            ps.setString(5, gender);
+            ps.setString(6, phone);
+            ps.setString(7, email);
+            ps.setString(8, address);
+
+            ps.executeUpdate();
+            String sql2 = """
+                          SELECT TOP 1 student_id
+                          FROM Student
+                          ORDER BY student_id DESC
+                          """;
+
+            ResultSet rs = connection.prepareStatement(sql2).executeQuery();
+
+            if (rs.next()) {
+                studentId = rs.getInt("student_id");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return studentId;
+    }
 }
