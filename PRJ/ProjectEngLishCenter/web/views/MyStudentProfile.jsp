@@ -5,23 +5,25 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/styles.css" />
         <title>My Profile</title>
     </head>
     <body>
-
-        <div class="content">
+        <jsp:include page="header.jsp"/>
+        <jsp:include page="topnav.jsp"/>
+        <div class="container">
             <div class="left">
-                <h3>${student.firstname} ${student.lastname}</h3>
+                <h3><b>Full Name: </b>${student.firstname} ${student.lastname}</h3>
             </div>
 
             <div class="right">
                 <h2>My Profile</h2>
 
-                <p><b>Full Name:</b> ${student.firstname} ${student.lastname}</p>
                 <p><b>Date of Birth:</b> ${student.dateofbirth}</p>
                 <p><b>Gender:</b> ${student.gender}</p>
                 <p><b>Email:</b> ${student.email}</p>
@@ -33,10 +35,11 @@
                 <p><b>Parent Name:</b> ${student.parentname}</p>
                 <p><b>Parent Phone:</b> ${student.parentphone}</p>
                 <p><b>Parent Email:</b> ${student.parentemail}</p>
-               
+
             </div>
 
-        </div>
 
+        </div>
+        <jsp:include page="footer.jsp"/>
     </body>
 </html>
