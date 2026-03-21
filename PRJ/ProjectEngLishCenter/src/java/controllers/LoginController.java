@@ -88,8 +88,6 @@ public class LoginController extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("login", acc);
 
-            int role = acc.getRoleId();
-
             RequestDispatcher rd = request.getRequestDispatcher("views/Main.jsp");
             request.setAttribute("user", acc.getUsername());
             rd.forward(request, response);
