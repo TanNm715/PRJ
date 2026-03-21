@@ -22,7 +22,7 @@
         <a href='Schedule'>Schedule</a>
     </c:if>    
     <c:if test="${login.getRoleId() == 3}">
-        <a href='Profile'>My Profile</a>
+        <a href='StudentProfile'>My Profile</a>
         <a href='MyCourses'>My Courses</a>
         <a href='Schedule'>Schedule</a>
     </c:if>    
