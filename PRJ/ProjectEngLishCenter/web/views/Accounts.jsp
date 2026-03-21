@@ -20,10 +20,10 @@
             <a href="CreateAccount" class='btnCreate'>Create a new Account</a>
             <table>
                 <tr>
-                    <td>Username</td>
-                    <td>Password</td>
-                    <td>Role</td>
-                    <td>Actions</td>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Role</th>
+                    <th>Actions</th>
 
 
                 </tr>
