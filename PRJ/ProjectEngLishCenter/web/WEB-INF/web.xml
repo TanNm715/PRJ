@@ -33,6 +33,10 @@
         <servlet-class>controllers.RegisterStudentController</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>LogoutController</servlet-name>
+        <servlet-class>controllers.LogoutController</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>ClassController</servlet-name>
         <servlet-class>controllers.ClassController</servlet-class>
     </servlet>
@@ -79,5 +83,9 @@
     <servlet-mapping>
         <servlet-name>ClassController</servlet-name>
         <url-pattern>/Classes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutController</servlet-name>
+        <url-pattern>/Logout</url-pattern>
     </servlet-mapping>
 </web-app>
