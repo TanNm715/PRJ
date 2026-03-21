@@ -20,14 +20,14 @@
             <table>
 
                 <tr>
-                    <td>Class Id</td>
-                    <td>Course</td>
-                    <td>Teacher Name</td>
-                    <td>Start Date</td>
-                    <td>End Date</td>
-                    <td>Schedule</td>
-                    <td>Room</td>
-                    <td>Total Students</td>
+                    <th>Class Id</th>
+                    <th>Course</th>
+                    <th>Teacher Name</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Schedule</th>
+                    <th>Room</th>
+                    <th>Total Students</th>
                 </tr>   
 
 
