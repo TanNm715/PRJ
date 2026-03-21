@@ -146,4 +146,53 @@ public class StudentDAO extends DBContext {
 
         return studentId;
     }
+    public Student getStudentByStudentId(int accId) {
+        Student s;
+        String sql = """
+        SELECT s.student_id,
+               s.first_name,
+               s.last_name,
+               s.date_of_birth,
+               s.gender,
+               s.phone,
+               s.email,
+               s.address,
+               p.name AS parent_name,
+               p.phone AS parent_phone,
+               p.email AS parent_email
+        FROM Student s
+        LEFT JOIN Parent p
+            ON s.parent_id = p.parent_id
+        WHERE s.student_id = ?
+        """;
+
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            ps.setInt(1, accId);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+
+                int studentId = rs.getInt("student_id");
+                String fname = rs.getString("first_name");
+                String lname =  rs.getString("last_name");
+                String dob = rs.getString("date_of_birth");
+                String gender = rs.getString("gender");
+                String phone = rs.getString("phone");
+                String email = rs.getString("email");
+                String address = rs.getString("address");
+                String pname = rs.getString("parent_name");
+                String pphone = rs.getString("parent_phone");
+                String pemail = rs.getString("parent_email");
+                
+                s = new Student(studentId, fname, lname, dob, gender, phone, email, address, pname, pphone, pemail);
+                return s;
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
