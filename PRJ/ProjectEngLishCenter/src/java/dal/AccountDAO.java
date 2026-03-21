@@ -121,7 +121,7 @@ public class AccountDAO extends DBContext {
     public void insertStudentAccount(String username, String password, int studentId) {
         String sql = """
                      INSERT INTO Account(username,password,role_id,student_id) 
-                        VALUES (?,?,1,?)
+                        VALUES (?,?,3,?)
                      """;
 
         try {
