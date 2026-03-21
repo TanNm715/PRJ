@@ -16,7 +16,7 @@
         <div class="choose-container">
             <h1>Select Account Type</h1>
             <div class="role-box">
-                <a class="role-btn" href="RegisterStudent.jsp">Student</a>
+                 <a class="role-btn" href="${pageContext.request.contextPath}/RegisterStudent">Student</a>
                 <a class="role-btn" href="${pageContext.request.contextPath}/RegisterTeacher">Teacher</a>
             </div>
         </div>
