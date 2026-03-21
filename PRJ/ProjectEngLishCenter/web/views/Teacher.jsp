@@ -19,11 +19,12 @@
             <table>
 
                 <tr>
-                    <td>TeacherId</td>
-                    <td>Name</td>
-                    <td>Phone</td>
-                    <td>Email</td>
-                    <td>Specialization</td>
+                    <th>TeacherId</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Specialization</th>
+                    <th></th>
                 </tr>   
 
 
