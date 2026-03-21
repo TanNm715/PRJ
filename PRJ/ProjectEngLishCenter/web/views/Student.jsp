@@ -20,17 +20,17 @@
             <table>
 
                 <tr>
-                    <td>StudentId</td>
-                    <td>First Name</td>
-                    <td>Last Name</td>
-                    <td>Date of Birth</td>
-                    <td>Gender</td>
-                    <td>Phone</td>
-                    <td>Email</td>
-                    <td>Address</td>
-                    <td>Parent Name</td>
-                    <td>Parent Phone</td>
-                    <td>Parent Email</td>
+                    <th>StudentId</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Parent Name</th>
+                    <th>Parent Phone</th>
+                    <th>Parent Email</th>
                 </tr>   
 
 
