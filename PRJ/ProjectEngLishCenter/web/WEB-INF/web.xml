@@ -64,6 +64,10 @@
         <servlet-name>CoursesController</servlet-name>
         <servlet-class>controllers.CoursesController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StudentProfileController</servlet-name>
+        <servlet-class>controllers.StudentProfileController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CoursesController</servlet-name>
         <url-pattern>/Courses</url-pattern>
@@ -87,5 +91,9 @@
     <servlet-mapping>
         <servlet-name>LogoutController</servlet-name>
         <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentProfileController</servlet-name>
+        <url-pattern>/StudentProfile</url-pattern>
     </servlet-mapping>
 </web-app>
