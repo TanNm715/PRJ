@@ -14,6 +14,7 @@ public class Account {
     private String username;
     private String password;
     private int roleId;
+    private int StudentId;
 
     public Account() {}
 
@@ -54,6 +55,14 @@ public class Account {
 
     public void setRoleId(int roleId) {
         this.roleId = roleId;
+    }
+
+    public int getStudentId() {
+        return StudentId;
+    }
+
+    public void setStudentId(int StudentId) {
+        this.StudentId = StudentId;
     }
 
     
