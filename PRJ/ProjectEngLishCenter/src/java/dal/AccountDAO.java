@@ -40,7 +40,7 @@ public class AccountDAO extends DBContext {
                 int roleId = rs.getInt("role_id");
 
                 Account acc = new Account(accountId, user, pass, roleId);
-
+                acc.setStudentId(rs.getInt("student_id"));
                 return acc;
             }
 
