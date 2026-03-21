@@ -4,82 +4,64 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Courses</title>
-    
-    <style>
-        table{
-            width:70%;
-            border-collapse:collapse;
-            margin-top:20px;
-        }
+    <head>
+        <title>Courses</title>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/styles.css" />
 
-        th{
-            background-color:#b30000;
-            color:white;
-        }
+    </head>
 
-        th, td{
-            border:1px solid gray;
-            padding:10px;
-            text-align:center;
-        }
+    <body>
+        <jsp:include page="header.jsp"/>
+        <jsp:include page="topnav.jsp"/>
+        <div class="content">
+            <h2>Courses</h2>
 
-        a{
-            text-decoration:none;
-            color:blue;
-        }
+            <a href="Courses?action=create">Create a new Course</a>
 
-    </style>
-</head>
+            <br><br>
 
-<body>
+            <table>
 
-<h2>Courses</h2>
+                <tr>
+                    <th>ID</th>
+                    <th>Course Name</th>
+                    <th>Level</th>
+                    <th>Duration</th>
+                    <th>Fee</th>
+                    <th>Actions</th>
+                </tr>
 
-<a href="Courses?action=create">Create a new Course</a>
+                <%
+                List<Course> list = (List<Course>)request.getAttribute("courses");
 
-<br><br>
+                if(list != null){
+                    for(Course c : list){
+                %>
 
-<table>
+                <tr>
 
-<tr>
-<th>ID</th>
-<th>Course Name</th>
-<th>Level</th>
-<th>Duration</th>
-<th>Fee</th>
-<th>Actions</th>
-</tr>
+                    <td><%=c.getCourseId()%></td>
+                    <td><%=c.getCourseName()%></td>
+                    <td><%=c.getLevel()%></td>
+                    <td><%=c.getDuration()%></td>
+                    <td><%=c.getFee()%></td>
 
-<%
-List<Course> list = (List<Course>)request.getAttribute("courses");
+                    <td>
+                        <a href="Courses?action=edit&id=<%=c.getCourseId()%>">Edit</a> |
+                        <a href="Courses?action=delete&id=<%=c.getCourseId()%>">Delete</a>
+                    </td>
 
-if(list != null){
-    for(Course c : list){
-%>
+                </tr>
 
-<tr>
+                <%
+                    }
+                }
+                %>
 
-<td><%=c.getCourseId()%></td>
-<td><%=c.getCourseName()%></td>
-<td><%=c.getLevel()%></td>
-<td><%=c.getDuration()%></td>
-<td><%=c.getFee()%></td>
+            </table>
+        </div>
 
-<td>
-<a href="Courses?action=edit&id=<%=c.getCourseId()%>">Edit</a> |
-<a href="Courses?action=delete&id=<%=c.getCourseId()%>">Delete</a>
-</td>
 
-</tr>
-
-<%
-    }
-}
-%>
-
-</table>
-
-</body>
+    </body>
+    <jsp:include page="footer.jsp"/>
 </html>
