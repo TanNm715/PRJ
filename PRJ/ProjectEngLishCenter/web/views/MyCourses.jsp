@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/styles.css" />
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/styles.css?v=1" />
         <title>My Courses</title>
     </head>
 
@@ -15,11 +15,11 @@
 
         <!-- Content -->
 
-        <div class="container" style="display: flex; justify-content: center; width: 100%; padding-top: 40px; padding-bottom: 40px;">
-            <div class="right" style="text-align: center; width: 80%; max-width: 1200px; padding: 40px; box-sizing: border-box; min-height: 500px;">
+        <div class="mc-container">
+            <div class="mc-content">
                 <h2 style="font-size: 28px; margin-bottom: 30px;">My Courses</h2>
 
-                <table border="1" style="margin:auto;">
+                <table class="mc-table">
                     <tr>
                         <th>Course Name</th>
                         <th>Level</th>
