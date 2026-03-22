@@ -76,6 +76,10 @@
         <servlet-name>TeacherProfileController</servlet-name>
         <servlet-class>controllers.TeacherProfileController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TeacherScheduleController</servlet-name>
+        <servlet-class>controllers.TeacherScheduleController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CoursesController</servlet-name>
         <url-pattern>/Courses</url-pattern>
@@ -111,5 +115,9 @@
     <servlet-mapping>
         <servlet-name>ScheduleController</servlet-name>
         <url-pattern>/Schedule</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TeacherScheduleController</servlet-name>
+        <url-pattern>/TeacherSchedule</url-pattern>
     </servlet-mapping>
 </web-app>
