@@ -51,4 +51,41 @@ public class ScheduleDAO extends DBContext {
 
         return list;
     }
+    
+    public List<Schedule> getScheduleByTeacherId(int teacherId) {
+        List<Schedule> list = new ArrayList<>();
+
+        try {
+            String sql = """
+            SELECT 
+                c.course_name,
+                cl.schedule,
+                cl.room
+            FROM enrollment e
+            JOIN class cl ON e.class_id = cl.class_id
+            JOIN course c ON cl.course_id = c.course_id
+            WHERE cl.teacher_id = ?
+            GROUP BY c.course_name, cl.schedule, cl.room;
+        """;
+
+            st = connection.prepareStatement(sql);
+            st.setInt(1, teacherId);
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+
+                String course = rs.getString("course_name");               
+                String schedule = rs.getString("schedule");
+                String room = rs.getString("room");
+
+                Schedule s = new Schedule(course, schedule, room);
+                list.add(s);              
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
 }
