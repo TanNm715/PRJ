@@ -40,6 +40,10 @@
         <servlet-name>ClassController</servlet-name>
         <servlet-class>controllers.ClassController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ScheduleController</servlet-name>
+        <servlet-class>controllers.ScheduleController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/Login</url-pattern>
