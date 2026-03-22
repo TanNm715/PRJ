@@ -41,6 +41,10 @@
         <servlet-class>controllers.ClassController</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>MyCoursesController</servlet-name>
+        <servlet-class>controllers.MyCoursesController</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>ScheduleController</servlet-name>
         <servlet-class>controllers.ScheduleController</servlet-class>
     </servlet>
@@ -119,5 +123,9 @@
     <servlet-mapping>
         <servlet-name>TeacherScheduleController</servlet-name>
         <url-pattern>/TeacherSchedule</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MyCoursesController</servlet-name>
+        <url-pattern>/MyCourses</url-pattern>
     </servlet-mapping>
 </web-app>
