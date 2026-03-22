@@ -14,7 +14,8 @@ public class Account {
     private String username;
     private String password;
     private int roleId;
-    private int StudentId;
+    private int studentId;
+    private int teacherId;
 
     public Account() {}
 
@@ -58,11 +59,19 @@ public class Account {
     }
 
     public int getStudentId() {
-        return StudentId;
+        return studentId;
     }
 
-    public void setStudentId(int StudentId) {
-        this.StudentId = StudentId;
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
+
+    public int getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(int teacherId) {
+        this.teacherId = teacherId;
     }
 
     
