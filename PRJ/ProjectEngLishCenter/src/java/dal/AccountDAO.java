@@ -21,6 +21,7 @@ public class AccountDAO extends DBContext {
     ResultSet rs;// hung kq tra ve
 
     public Account getAccount(String username, String password) {
+        Account acc;
         try {
             String sql = """
                         select * from Account
@@ -39,10 +40,12 @@ public class AccountDAO extends DBContext {
                 String pass = rs.getString("password");
                 int roleId = rs.getInt("role_id");
 
-                Account acc = new Account(accountId, user, pass, roleId);
+                acc = new Account(accountId, user, pass, roleId);
                 acc.setStudentId(rs.getInt("student_id"));
+                acc.setTeacherId(rs.getInt("teacher_id"));
                 return acc;
             }
+            
 
         } catch (Exception e) {
             return null;
