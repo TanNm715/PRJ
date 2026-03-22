@@ -104,4 +104,8 @@
         <servlet-name>TeacherProfileController</servlet-name>
         <url-pattern>/TeacherProfile</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ScheduleController</servlet-name>
+        <url-pattern>/Schedule</url-pattern>
+    </servlet-mapping>
 </web-app>
