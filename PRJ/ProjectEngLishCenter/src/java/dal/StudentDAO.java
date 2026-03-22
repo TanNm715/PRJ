@@ -16,8 +16,6 @@ import models.Student;
  */
 public class StudentDAO extends DBContext {
 
-    PreparedStatement st; //cb cau lenh
-    ResultSet rs;// hung kq tra ve
 
     public List<Student> getStudent() {
         List<Student> list = new ArrayList<>();
@@ -37,11 +35,11 @@ public class StudentDAO extends DBContext {
                     + "FROM Student s\n"
                     + "LEFT JOIN Parent p\n"
                     + "ON s.parent_id = p.parent_id;";
-            st = connection.prepareStatement(sql);
+            PreparedStatement st = connection.prepareStatement(sql);
             // truyen tham so cho cau lenh sql
             // o day k can truyen tham so vi cau lenh sql k co where
 
-            rs = st.executeQuery(); // select
+            ResultSet rs = st.executeQuery(); // select
             while (rs.next()) {
                 int studentId = rs.getInt("student_id");
                 String firstname = rs.getString("first_name");
@@ -54,8 +52,8 @@ public class StudentDAO extends DBContext {
                 String parentname = rs.getString("parent_name");
                 String parentphone = rs.getString("parent_phone");
                 String parentemail = rs.getString("parent_email");
-                Student st = new Student(studentId, firstname, lastname, dateofbirth, gender, phone, email, address, parentname, parentphone, parentemail);
-                list.add(st);
+                Student stu = new Student(studentId, firstname, lastname, dateofbirth, gender, phone, email, address, parentname, parentphone, parentemail);
+                list.add(stu);
             }
             return list;
         } catch (Exception e) {
@@ -116,18 +114,18 @@ public class StudentDAO extends DBContext {
                          VALUES (?, ?, ?, ?, ?, ?, ?, ?)
                          """;
 
-            PreparedStatement ps = connection.prepareStatement(sql);
+            PreparedStatement st = connection.prepareStatement(sql);
 
-            ps.setInt(1, parentId);
-            ps.setString(2, firstName);
-            ps.setString(3, lastName);
-            ps.setString(4, bdate);
-            ps.setString(5, gender);
-            ps.setString(6, phone);
-            ps.setString(7, email);
-            ps.setString(8, address);
+            st.setInt(1, parentId);
+            st.setString(2, firstName);
+            st.setString(3, lastName);
+            st.setString(4, bdate);
+            st.setString(5, gender);
+            st.setString(6, phone);
+            st.setString(7, email);
+            st.setString(8, address);
 
-            ps.executeUpdate();
+            st.executeUpdate();
             String sql2 = """
                           SELECT TOP 1 student_id
                           FROM Student
@@ -146,7 +144,8 @@ public class StudentDAO extends DBContext {
 
         return studentId;
     }
-    public Student getStudentByStudentId(int accId) {
+
+    public Student getStudentByStudentId(int studentId) {
         Student s;
         String sql = """
         SELECT s.student_id,
@@ -167,14 +166,14 @@ public class StudentDAO extends DBContext {
         """;
 
         try {
-            PreparedStatement ps = connection.prepareStatement(sql);
+            PreparedStatement st = connection.prepareStatement(sql);
 
-            ps.setInt(1, accId);
-            ResultSet rs = ps.executeQuery();
+            st.setInt(1, studentId);
+            ResultSet rs = st.executeQuery();
 
             if (rs.next()) {
 
-                int studentId = rs.getInt("student_id");
+                int student_Id = rs.getInt("student_id");
                 String fname = rs.getString("first_name");
                 String lname =  rs.getString("last_name");
                 String dob = rs.getString("date_of_birth");
@@ -186,7 +185,7 @@ public class StudentDAO extends DBContext {
                 String pphone = rs.getString("parent_phone");
                 String pemail = rs.getString("parent_email");
                 
-                s = new Student(studentId, fname, lname, dob, gender, phone, email, address, pname, pphone, pemail);
+                s = new Student(student_Id, fname, lname, dob, gender, phone, email, address, pname, pphone, pemail);
                 return s;
             }
             
