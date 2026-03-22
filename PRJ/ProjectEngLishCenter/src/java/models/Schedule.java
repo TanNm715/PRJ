@@ -32,4 +32,9 @@ public class Schedule {
     public String getRoom() {
         return room;
     }
+     public Schedule(String courseName, String schedule, String room) {
+        this.courseName = courseName;
+        this.schedule = schedule;
+        this.room = room;
+    }
 }
