@@ -104,4 +104,39 @@ public class TeacherDAO extends DBContext {
         e.printStackTrace();
     }
 }
+
+    public Teacher getTeacherByTeacherId(int teacherId) {
+         Teacher teacher;
+        try {
+            String sql = """
+                         SELECT t.teacher_id,
+                                    t.name,
+                                    t.phone,
+                                    t.email,
+                                    STRING_AGG(s.specialization_name, ', ') AS specialization
+                             FROM Teacher t
+                             LEFT JOIN Specialize sp ON t.teacher_id = sp.teacher_id
+                             LEFT JOIN Specialization s ON sp.specialization_id = s.specialization_id
+                             WHERE t.teacher_id = ?
+                             GROUP BY t.teacher_id, t.name, t.phone, t.email
+                         """;
+            st = connection.prepareStatement(sql);
+            st.setInt(1, teacherId);
+            rs = st.executeQuery();
+            while (rs.next()) {
+                int teacher_Id = rs.getInt("teacher_id");
+                String name = rs.getString("name");
+                String phone = rs.getString("phone");
+                String email = rs.getString("email");
+                String specialization = rs.getString("specialization");
+
+                Teacher ts = new Teacher(teacher_Id, name, phone, email, specialization);
+                return ts;
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }return null;
+    }
+    
 }
