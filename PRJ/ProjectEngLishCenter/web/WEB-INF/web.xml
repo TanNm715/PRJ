@@ -68,6 +68,10 @@
         <servlet-name>StudentProfileController</servlet-name>
         <servlet-class>controllers.StudentProfileController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TeacherProfileController</servlet-name>
+        <servlet-class>controllers.TeacherProfileController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CoursesController</servlet-name>
         <url-pattern>/Courses</url-pattern>
@@ -95,5 +99,9 @@
     <servlet-mapping>
         <servlet-name>StudentProfileController</servlet-name>
         <url-pattern>/StudentProfile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TeacherProfileController</servlet-name>
+        <url-pattern>/TeacherProfile</url-pattern>
     </servlet-mapping>
 </web-app>
