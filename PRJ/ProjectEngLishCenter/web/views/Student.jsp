@@ -10,54 +10,52 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/styles.css" />
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/styles.css?v=1" />
         <title>STUDENT</title>
     </head>
-    <body>
+    <body style="margin:0; min-height:100vh; display:flex; flex-direction:column;">
         <jsp:include page="header.jsp"/>
         <jsp:include page="topnav.jsp"/>
-        <div class="content">
-            <table>
-
-                <tr>
-                    <th>StudentId</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Date of Birth</th>
-                    <th>Gender</th>
-                    <th>Phone</th>
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th>Parent Name</th>
-                    <th>Parent Phone</th>
-                    <th>Parent Email</th>
-                </tr>   
-
-
-
-
-                <c:forEach var="st" items="${student}">
-                    <tr>
-                        <td>${st.studentId}</td>                       
-                        <td>${st.firstname}</td>
-                        <td>${st.lastname}</td>
-                        <td>${st.dateofbirth}</td>
-                        <td>${st.gender}</td>
-                        <td>${st.phone}</td>
-                        <td>${st.email}</td>
-                        <td>${st.address}</td>
-                        <td>${st.parentname}</td>
-                        <td>${st.parentphone}</td>
-                        <td>${st.parentemail}</td>
-
-                    </tr>
-
-                </c:forEach>
-            </table>
+        
+        <div class="mc-container" >
+            <div class="mc-content" style="overflow-x: auto; width: 100%;">
+                <table class="mc-table" style="width: 100%; white-space: nowrap;">
+                    <thead>
+                        <tr>
+                            <th>StudentId</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Date of Birth</th>
+                            <th>Gender</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>Parent Name</th>
+                            <th>Parent Phone</th>
+                            <th>Parent Email</th>
+                        </tr>   
+                    </thead>
+                    <tbody>
+                        <c:forEach var="st" items="${student}">
+                            <tr>
+                                <td>${st.studentId}</td>                       
+                                <td>${st.firstname}</td>
+                                <td>${st.lastname}</td>
+                                <td>${st.dateofbirth}</td>
+                                <td>${st.gender}</td>
+                                <td>${st.phone}</td>
+                                <td>${st.email}</td>
+                                <td>${st.address}</td>
+                                <td>${st.parentname}</td>
+                                <td>${st.parentphone}</td>
+                                <td>${st.parentemail}</td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <jsp:include page="footer.jsp"/>
     </body>
-
-
 </html>
