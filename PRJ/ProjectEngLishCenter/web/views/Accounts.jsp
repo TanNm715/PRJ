@@ -10,20 +10,20 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/styles.css" />
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/styles.css?v=1" />
         <title>JSP Page</title>
     </head>
-    <body>
+    <body style="margin:0; min-height:100vh; display:flex; flex-direction:column;">
         <jsp:include page="header.jsp"/>
         <jsp:include page="topnav.jsp"/>
-        <div class="content">
-            <a href="CreateAccount" class='btnCreate'>Create a new Account</a>
-            <table>
+        <div class="mc-container">
+            <div class="mc-content">
+
+            <table class="mc-table">
                 <tr>
                     <th>Username</th>
                     <th>Password</th>
                     <th>Role</th>
-                    <th>Actions</th>
 
 
                 </tr>
@@ -42,8 +42,8 @@
                 </c:forEach>
 
             </table>
-        </div>
-        
+        </div></div>
+
         <jsp:include page="footer.jsp"/>
     </body>
 </html>
