@@ -86,14 +86,22 @@ public class CourseDAO extends DBContext {
 
     public void deleteCourse(int id) {
 
-        String sql = "DELETE FROM course WHERE course_id=?";
+       try {
 
-        try {
-            PreparedStatement st = connection.prepareStatement(sql);
+            String sql0 = "DELETE FROM enrollment WHERE class_id IN (SELECT class_id FROM class WHERE course_id=?)";
+            PreparedStatement st0 = connection.prepareStatement(sql0);
+            st0.setInt(1, id);
+            st0.executeUpdate();
 
-            st.setInt(1, id);
+            String sql1 = "DELETE FROM class WHERE course_id=?";
+            PreparedStatement st1 = connection.prepareStatement(sql1);
+            st1.setInt(1, id);
+            st1.executeUpdate();
 
-            st.executeUpdate();
+            String sql2 = "DELETE FROM course WHERE course_id=?";
+            PreparedStatement st2 = connection.prepareStatement(sql2);
+            st2.setInt(1, id);
+            st2.executeUpdate();
 
         } catch (Exception e) {
             e.printStackTrace();
