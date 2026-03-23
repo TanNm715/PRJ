@@ -17,7 +17,6 @@
     </c:if>
     <c:if test="${login.getRoleId() == 2}">
         <a href='TeacherProfile'>My Profile</a>
-        <a href='Classes'>My Classes</a>
         <a href='Students'>My Students</a>
         <a href='TeacherSchedule'>Schedule</a>
     </c:if>    
