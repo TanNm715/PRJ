@@ -3,18 +3,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/styles.css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/styles.css?v=1" />
         <title>SCHEDULE</title>
     </head>
-    <body>
+    <body style="margin:0; min-height:100vh; display:flex; flex-direction:column;">
 
         <jsp:include page="header.jsp"/>
         <jsp:include page="topnav.jsp"/>
 
-        <div class="content">
+        <div class="mc-container">
+             <div class="mc-content">
+
+
             <h3>Schedule</h3>
 
-            <table border="1">
+            <table class="mc-table">
                 <tr>
                     <th>Course</th>
                     <th>Day</th>
@@ -30,9 +34,11 @@
                 </c:forEach>
 
             </table>
-        </div>
 
+        </div> </div>
         <jsp:include page="footer.jsp"/>
 
-    </body>
+
+
+</body>
 </html>
