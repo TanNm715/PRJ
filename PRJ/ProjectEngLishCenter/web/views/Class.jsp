@@ -10,14 +10,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/styles.css" />
-        <title>TEACHER</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/styles.css?v=1" />        <title>TEACHER</title>
     </head>
-    <body>
+    <body style="margin:0; min-height:100vh; display:flex; flex-direction:column;">
         <jsp:include page="header.jsp"/>
         <jsp:include page="topnav.jsp"/>
-        <div class="content">
-            <table>
+        <div class="mc-container">
+            <div class="mc-content">
+            
+            <table class="mc-table">
 
                 <tr>
                     <th>Class Id</th>
@@ -50,7 +51,7 @@
 
                 </c:forEach>
             </table>
-        </div>
+        </div></div>
 
         <jsp:include page="footer.jsp"/>
     </body>
