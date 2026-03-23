@@ -9,44 +9,45 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/styles.css" />
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/styles.css?v=1" />
         <title>TEACHER</title>
     </head>
-    <body>
+    <body style="margin:0; min-height:100vh; display:flex; flex-direction:column;">
         <jsp:include page="header.jsp"/>
         <jsp:include page="topnav.jsp"/>
-        <div class="content">
-            <table>
+        <div class="mc-container">
+            <div class="mc-content">
+                <table class="mc-table">
 
-                <tr>
-                    <th>TeacherId</th>
-                    <th>Name</th>
-                    <th>Phone</th>
-                    <th>Email</th>
-                    <th>Specialization</th>
-                    <th></th>
-                </tr>   
-
-
-
-
-                <c:forEach var="ts" items="${teacher}">
                     <tr>
-                        <td>${ts.teacherId}</td>
-                        <td>${ts.name}</td>
-                        <td>${ts.phone}</td>
-                        <td>${ts.email}</td>
-                        <td>${ts.specialization}</td>
-                        <td><a href="#">View</a></td>
+                        <th>TeacherId</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Specialization</th>
+                        
+                    </tr>   
 
 
-                    </tr>
 
-                </c:forEach>
-            </table>
-        </div>
 
-        <jsp:include page="footer.jsp"/>
+                    <c:forEach var="ts" items="${teacher}">
+                        <tr>
+                            <td>${ts.teacherId}</td>
+                            <td>${ts.name}</td>
+                            <td>${ts.phone}</td>
+                            <td>${ts.email}</td>
+                            <td>${ts.specialization}</td>
+                            
+
+
+                        </tr>
+
+                    </c:forEach>
+                </table>
+            </div></div>
+
+            <jsp:include page="footer.jsp"/>
     </body>
 
 
