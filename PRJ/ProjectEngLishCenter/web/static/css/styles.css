@@ -192,7 +192,7 @@ a{
     background: #f9f9f9;
     border-radius: 6px;
 }
-/* --- Trang My Courses --- */
+
 .mc-container {
     display: flex;
     justify-content: center;
@@ -204,15 +204,34 @@ a{
 }
 
 .mc-content {
-    width: 80%;
-    max-width: 1000px;
+    width: 95%; 
+    max-width: 1300px; 
     text-align: center;
     background-color: #ffffff; 
-    padding: 40px;
+    padding: 30px; 
     box-sizing: border-box;
     border-radius: 8px; 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     border-top: 4px solid #b31b1b; 
+    
+   
+    overflow-x: auto; 
+}
+
+
+.mc-content::-webkit-scrollbar {
+    height: 8px;
+}
+.mc-content::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 8px;
+}
+.mc-content::-webkit-scrollbar-thumb {
+    background: #c1c1c1; 
+    border-radius: 8px;
+}
+.mc-content::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8; 
 }
 
 .mc-content h2 {
@@ -221,28 +240,46 @@ a{
     color: #b31b1b; 
 }
 
-/* --- bang My Courses --- */
+
 .mc-table {
     margin: 0 auto;
     width: 100%;
-    font-size: 16px;
+    font-size: 15px; 
     border-collapse: collapse;
+    white-space: nowrap; 
 }
 
 .mc-table th, 
 .mc-table td {
-    border: 1px solid #ddd; 
-    padding: 15px; 
+    border-bottom: 1px solid #eeeeee; 
+    padding: 14px 16px; 
     text-align: center; 
 }
 
 .mc-table th {
     background-color: #b31b1b; 
     color: white; 
-    font-weight: bold;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
+.mc-table tbody tr:nth-child(even) {
+    background-color: #fafafa;
+}
 
-.mc-table tr:hover {
-    background-color: #f9f9f9;
+.mc-table tbody tr:hover {
+    background-color: #f0f4f8;
+    transition: background-color 0.2s ease;
+}
+
+.mc-table td:nth-child(2),
+.mc-table td:nth-child(3),
+.mc-table td:nth-child(7),
+.mc-table td:nth-child(8),
+.mc-table td:nth-child(9),
+.mc-table td:nth-child(11) {
+    text-align: left;
 }
