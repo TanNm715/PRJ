@@ -84,7 +84,10 @@
 
                         <td>
                             <a href="Courses?action=edit&id=<%=c.getCourseId()%>">Edit</a> |
-                            <a href="Courses?action=delete&id=<%=c.getCourseId()%>">Delete</a>
+                            <a href="Courses?action=delete&id=<%=c.getCourseId()%>" 
+                               onclick="return confirm('Do you want to delete it?');">
+                                Delete
+                            </a>
                         </td>
 
                     </tr>
